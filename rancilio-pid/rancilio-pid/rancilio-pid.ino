@@ -616,7 +616,7 @@ void refreshTemp() {
        #endif
       //Temperatur_C = 70;
       if (!checkSensor(Temperatur_C) && firstreading == 0) return;  //if sensor data is not valid, abort function; Sensor must be read at least one time at system startup
-      Input = Temperatur_C;
+      Input = Temperatur_C + TEMP_OFFSET;
       if (Brewdetection != 0) {
         movAvg();
       } else if (firstreading != 0) {
@@ -1845,10 +1845,10 @@ void setup() {
     temperature = 0;
     #if (ONE_WIRE_BUS == 16 && defined(ESP8266))
          Sensor1.getTemperature(&temperature);
-         Input = Sensor1.calc_Celsius(&temperature);
+         Input = Sensor1.calc_Celsius(&temperature) + TEMP_OFFSET;
     #endif
     #if ((ONE_WIRE_BUS != 16 && defined(ESP8266)) || defined(ESP32))
-        Input = Sensor2.getTemp();
+        Input = Sensor2.getTemp() + TEMP_OFFSET;
      #endif
   }
 
