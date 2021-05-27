@@ -44,6 +44,7 @@ MACHINE machine = RancilioSilvia;      //	RancilioSilvia, RancilioSilviaE, Gaggi
 #define GRAFANA 1                  // 1 = grafana visualisation (access required), 0 = off (default)
 
 // PID & Hardware
+#define TEMP_OFFSET 1              // offset will be added to measured temperature
 #define ONLYPID 1                  // 1 = Only PID, 0 = PID and preinfusion
 #define ONLYPIDSCALE 0             // 0 = off , 1= OnlyPID with Scale
 #define BREWMODE 1                 // 1 = NORMAL preinfusion ; 2 = Scale with weight
